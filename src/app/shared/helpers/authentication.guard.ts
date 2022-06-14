@@ -1,21 +1,24 @@
-// import { Injectable } from '@angular/core';
-// import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-// import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router';
+import { Store } from '@ngxs/store';
 
-// @Injectable({ providedIn: 'root' })
-// export class AuthGuard implements CanActivate {
-//   currentUser: IConnectedInformations;
+@Injectable({ providedIn: 'root' })
+export class AuthGuard implements CanActivate {
+  token: String;
 
-//   constructor(private store: Store<MaderaStore>, private router: Router) {}
+  constructor(private store: Store, private router: Router) {}
 
-//   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-//     this.currentUser = JSON.parse(localStorage.getItem('connectedEmployee'));
-//     this.store.dispatch(AuthenticationAction.getAuthorized({}));
-//     if (this.currentUser) {
-//       return true;
-//     }
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (localStorage.getItem('token')) {
+      return true;
+    }
 
-//     this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
-//     return false;
-//   }
-// }
+    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+    return false;
+  }
+}
