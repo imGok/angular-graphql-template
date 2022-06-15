@@ -18,6 +18,10 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@apollo/client": "^3.0.0",
+    "@ngxs/store": "^3.7.4",
+    "apollo-angular": "^3.0.1",
+    "graphql": "^16",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -34,5 +38,9 @@
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.7.2"
-  }
+  },
+  "main": "index.js",
+  "repository": "git@github.com:imGok/angular-graphql-template.git",
+  "author": "Julian KOUNE <kounecorp@gmail.com>",
+  "license": "MIT"
 }
